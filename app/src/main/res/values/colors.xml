@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#ffcccc</color>
+    <color name="colorPrimaryDark">#ff9999</color>
+    <color name="colorAccent">#ff0000</color>
     <color name="yellowCard">#FFB507</color>
     <color name="greenCard">#1FD0BF</color>
     <color name="pinkCard">#EB648B</color>

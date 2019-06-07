@@ -7,3 +7,5 @@ h
 8app/src/main/java/jeta/android/noteapp/MainActivity.java,e\9\e941dbeb0c0d8472336a76b6bbbfddb3d4b97e22
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+h
+8app/src/main/java/jeta/android/noteapp/NotesAdapter.java,6\e\6ed5c18cf05d63568c8909870f29cc7c473a2acc

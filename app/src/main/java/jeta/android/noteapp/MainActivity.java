@@ -1,12 +1,12 @@
 package jeta.android.noteapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (item.getItemId() == R.id.action_add) {
             //open new intent
-            Toast.makeText(getApplicationContext(), "This will open new activity", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(MainActivity.this, AddNewNoteActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

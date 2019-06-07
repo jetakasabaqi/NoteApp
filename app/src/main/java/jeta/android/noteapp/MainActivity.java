@@ -11,15 +11,12 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
 
-    private RecyclerView notesList;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        notesList = findViewById(R.id.notes_list);
+        RecyclerView notesList = findViewById(R.id.notes_list);
 
 
         notesList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));

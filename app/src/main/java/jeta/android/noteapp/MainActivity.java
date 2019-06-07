@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         RecyclerView notesList = findViewById(R.id.notes_list);
 
-
+        setTitle(R.string.notes);
         notesList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         notesList.setHasFixedSize(true);
         notesList.setAdapter(new NotesAdapter());

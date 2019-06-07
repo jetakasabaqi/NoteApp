@@ -1,17 +1,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center_horizontal"
-    android:gravity="center_horizontal">
-    <!-- A CardView that contains a TextView -->
+    android:gravity="center_horizontal"><!-- A CardView that contains a TextView -->
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_margin="25dp"
-        android:background="@drawable/card_border"
+        android:layout_margin="15dp"
+        android:background="@drawable/card_back"
+        app:cardPreventCornerOverlap="false"
         card_view:cardCornerRadius="14dp">
 
         <RelativeLayout
@@ -26,13 +27,21 @@
                 android:textSize="25sp"
                 tools:text="Title of the note" />
 
+            <View
+                android:id="@+id/note_divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/note_title"
+                android:layout_margin="5dp"
+                android:background="@color/colorPrimaryDark" />
+
             <TextView
                 android:id="@+id/note_desc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/note_title"
+                android:layout_below="@id/note_divider"
                 android:layout_margin="5dp"
-
+                android:maxLines="9"
                 android:textSize="15sp"
                 tools:text="lorem lorem loremlroej" />
 
@@ -43,10 +52,27 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
+                android:layout_margin="8dp"
                 android:layout_marginBottom="0dp"
                 android:paddingTop="10dp"
-                android:textSize="18sp"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="13sp"
                 tools:text="05/15/2018" />
+
+            <TextView
+                android:id="@+id/continues"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="8dp"
+                android:layout_marginBottom="0dp"
+                android:paddingTop="10dp"
+                android:text="..."
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="23sp"
+                android:visibility="gone" />
 
         </RelativeLayout>
 

@@ -23,11 +23,28 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
-    public void onBindViewHolder(@NonNull NotesViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final NotesViewHolder holder, int position) {
 
-        holder.notesTitle.setText("Titulli" + position);
-        holder.notesDesc.setText("Deskripshen");
+        holder.notesTitle.setText("Note " + position + " title");
+        holder.notesDesc.setText("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing");
         holder.notesDate.setText("15/02/03");
+
+        shouldShowDots(holder);
+
+    }
+
+    //if notes content is longer than 9 rows, show three dots to tell that it continues
+    private void shouldShowDots(final NotesViewHolder holder) {
+        holder.notesDesc.post(new Runnable() {
+            @Override
+            public void run() {
+                int lineCount = holder.notesDesc.getLineCount();
+                // Use lineCount here
+                if (lineCount > 9) {
+                    holder.continuesDots.setVisibility(View.VISIBLE);
+                }
+            }
+        });
     }
 
     @Override
@@ -41,6 +58,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         TextView notesTitle;
         TextView notesDesc;
         TextView notesDate;
+        TextView continuesDots;
 
         NotesViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -48,7 +66,10 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
             notesDesc = itemView.findViewById(R.id.note_desc);
             notesTitle = itemView.findViewById(R.id.note_title);
             container = itemView.findViewById(R.id.container);
+            continuesDots = itemView.findViewById(R.id.continues);
 
         }
+
+
     }
 }

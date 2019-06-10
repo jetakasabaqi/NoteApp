@@ -13,10 +13,19 @@ import android.widget.TextView;
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHolder> {
 
 
+    private final OnListItemClickListener mOnListItemClickListener;
+
+
+    NotesAdapter(OnListItemClickListener listItemClickListener) {
+        mOnListItemClickListener = listItemClickListener;
+
+    }
+
     @NonNull
     @Override
     public NotesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View row = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_note_list, parent, false);
+        row.setTag(this);
 
         return new NotesViewHolder(row);
     }
@@ -32,6 +41,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         shouldShowDots(holder);
 
     }
+
 
     //if notes content is longer than 9 rows, show three dots to tell that it continues
     private void shouldShowDots(final NotesViewHolder holder) {
@@ -52,7 +62,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
         return 10;
     }
 
-    class NotesViewHolder extends RecyclerView.ViewHolder {
+    class NotesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         LinearLayout container;
         TextView notesTitle;
@@ -67,9 +77,23 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesViewHol
             notesTitle = itemView.findViewById(R.id.note_title);
             container = itemView.findViewById(R.id.container);
             continuesDots = itemView.findViewById(R.id.continues);
+            itemView.setOnClickListener(this);
 
         }
 
 
+        @Override
+        public void onClick(View v) {
+            int clickedPosition = getAdapterPosition();
+            mOnListItemClickListener.onListItemClick(clickedPosition);
+        }
     }
+
+    public interface OnListItemClickListener {
+
+        void onListItemClick(int clickedItemIndex);
+    }
+
+
 }
+

@@ -7,9 +7,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NotesAdapter.OnListItemClickListener {
 
+    public static final String POSITON_EXTRA = "position";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +23,16 @@ public class MainActivity extends AppCompatActivity {
         setTitle(R.string.notes);
         notesList.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         notesList.setHasFixedSize(true);
-        notesList.setAdapter(new NotesAdapter());
+        notesList.setAdapter(new NotesAdapter(this));
     }
 
+    @Override
+    public void onListItemClick(int clickedItemIndex) {
+        Toast.makeText(this, clickedItemIndex + "is clicked", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(MainActivity.this, NoteActivity.class);
+        intent.putExtra(POSITON_EXTRA, clickedItemIndex);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

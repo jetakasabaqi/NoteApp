@@ -25,3 +25,9 @@ n
 >app/src/main/java/jeta/android/noteapp/AddNewNoteActivity.java,7\6\76ced280091bd4326e8121f1df2a487b69aa010c
 S
 #app/src/main/res/values/strings.xml,d\2\d2281fbb3027de2722081a53408dd77628bf080e
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+Y
+)app/src/main/res/layout/activity_note.xml,5\5\557e15a98f39b087f4fa5cec4326240d4bef2474
+h
+8app/src/main/java/jeta/android/noteapp/NoteActivity.java,7\f\7f944fe8612e4595574dbabe2900236f21c64e6a
